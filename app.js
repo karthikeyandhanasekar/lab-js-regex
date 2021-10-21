@@ -45,29 +45,29 @@ function formValidate() {
         document.querySelector("#email").innerHTML = ""
 
     //password  and confirm password field
-    if (!passwordpattern.test(password))
-    {
+    if (!passwordpattern.test(password)) {
         document.querySelector("#pwd").innerHTML = "password must contain 1 uppercase letter, 1 lowercase letter, atleast 1 number and atleast 1 symbol"
-        if (confirmpassword.length ===0)
-        document.querySelector("#cpwd").innerHTML = "Field is empty"
-        else 
-        {   
-        if(password !=  confirmpassword)
-        document.querySelector("#cpwd").innerHTML = "Password does not match"
-        else
-        document.querySelector("#cpwd").innerHTML = ""
-        }
+
     }
     else
         document.querySelector("#pwd").innerHTML = ""
-    
+
+
+    if (confirmpassword.length === 0)
+        document.querySelector("#cpwd").innerHTML = "Field is empty"
+    else {
+        if (password != confirmpassword)
+            document.querySelector("#cpwd").innerHTML = "Password does not match"
+        else
+            document.querySelector("#cpwd").innerHTML = ""
+    }
 
     //phone field
     if (!phonepattern.test(phone))
         document.querySelector("#phone").innerHTML = "Invalid Phone"
     else
         document.querySelector("#phone").innerHTML = ""
-    
+
 
 
 
