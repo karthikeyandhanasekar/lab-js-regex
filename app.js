@@ -22,6 +22,7 @@ function formValidate() {
     let addresspattern = /[a-zA-Z0-9]+/g
     let emailpattern = /[a-zA-Z0-9\,\_]+\@{1}[a-zA-Z0-9]+\.[a-z]{2,3}$/g
     let passwordpattern = /[A-Z]+[a-z]+[0-9]+[\!\@\#\$\%\^\&\*\(\)]+/g
+    let phonepattern = /[0-9]{10}/g
 
 
     //test name field
@@ -37,17 +38,35 @@ function formValidate() {
     else
         document.querySelector("#address").innerHTML = ""
 
-    //email pattern
+    //email field
     if (!emailpattern.test(email))
-        document.querySelector("#email").innerHTML = "Enter valid Email"
+        document.querySelector("#email").innerHTML = "Invalid Email"
     else
         document.querySelector("#email").innerHTML = ""
 
-    //password pattern
+    //password  and confirm password field
     if (!passwordpattern.test(password))
+    {
         document.querySelector("#pwd").innerHTML = "password must contain 1 uppercase letter, 1 lowercase letter, atleast 1 number and atleast 1 symbol"
+        if (confirmpassword.length ===0)
+        document.querySelector("#cpwd").innerHTML = "Field is empty"
+        else 
+        {   
+        if(password !=  confirmpassword)
+        document.querySelector("#cpwd").innerHTML = "Password does not match"
+        else
+        document.querySelector("#cpwd").innerHTML = ""
+        }
+    }
     else
         document.querySelector("#pwd").innerHTML = ""
+    
+
+    //phone field
+    if (!phonepattern.test(phone))
+        document.querySelector("#phone").innerHTML = "Invalid Phone"
+    else
+        document.querySelector("#phone").innerHTML = ""
     
 
 
